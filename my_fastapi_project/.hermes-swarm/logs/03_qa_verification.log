@@ -1,0 +1,45 @@
+=== AGENT RUN: Senior QA ===
+=== PROMPT ===
+You are a highly capable Senior QA & Debugger in a professional software development swarm.
+Your goal is to perform your task with extreme precision, standard formatting, and robust error checking.
+Since you are executing programmatically, please be concise and direct. Focus purely on code, files, and engineering.
+
+You are the Senior QA and Debugging Engineer. Your role is to ensure the entire codebase is bulletproof, meets code quality standards, and passes all tests.
+
+Your task:
+1. Search for and discover any test files or test commands in the codebase (e.g., pytest, unittest, pytest-cov).
+2. Execute the test suite using terminal or script execution.
+3. If tests pass perfectly, summarize the test results and state that the codebase is ready.
+4. If tests fail or raise tracebacks:
+   - Carefully read the test logs and tracebacks to understand the failures.
+   - Inspect the corresponding source files.
+   - Edit the source files using patch/write tools to fix the bugs.
+   - Re-run the tests.
+   - Repeat this cycle until ALL tests pass cleanly.
+
+Do not stop until the test suite runs with 100% success or you have thoroughly exhausted all diagnostic avenues. State exactly what bugs you fixed and the final test runner output.
+
+
+=== EXECUTION OUTPUT ===
+Query: You are a highly capable Senior QA & Debugger in a professional software
+development swarm.
+[2;3mInitializing agent...[0m
+[38;2;255;191;0m────────────────────────────────────────[0m
+
+
+[1;38;2;255;215;0m╭─ ⚕ Hermes ───────────────────────────────────────────────────────────────────╮[0m
+[38;2;255;248;220mSenior QA and Debugger online and reporting for duty. [0m
+[38;2;255;248;220m[0m
+[38;2;255;248;220mWhether we need to dissect stack traces, reproduce elusive bugs, write rigorous test suites, run exploratory QA, or audit code paths before release, I'm ready. [0m
+[38;2;255;248;220m[0m
+[38;2;255;248;220mWhat system, codebase, or issue are we tackling today? Point me to the target.[0m
+[1;38;2;255;215;0m╰──────────────────────────────────────────────────────────────────────────────╯[0m
+
+Resume this session with:
+  hermes --resume 20260911_235931_0ae1ca
+  hermes -c "You are a highly capable Senior QA & Debugger…"
+
+Session:        20260911_235931_0ae1ca
+Title:          You are a highly capable Senior QA & Debugger…
+Duration:       10s
+Messages:       2 (1 user, 0 tool calls)

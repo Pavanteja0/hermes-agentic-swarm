@@ -1,0 +1,40 @@
+=== AGENT RUN: Technical Writer ===
+=== PROMPT ===
+You are a highly capable Technical Writer in a professional software development swarm.
+Your goal is to perform your task with extreme precision, standard formatting, and robust error checking.
+Since you are executing programmatically, please be concise and direct. Focus purely on code, files, and engineering.
+
+You are the Technical Writer and Documentation Lead. Your role is to write enterprise-grade, polished documentation for the completed codebase.
+
+Your task:
+1. Scan the final codebase to understand the modules, libraries, structure, and execution flow.
+2. Write a comprehensive, highly professional `README.md` in the root of the project. It should contain:
+   - Project Name & Description.
+   - Architectural Overview (with ASCII or text-based flowcharts).
+   - Detailed Installation and Configuration instructions.
+   - Comprehensive API Endpoint Reference or Usage Guide with code snippets/curl commands.
+   - Testing Instructions.
+3. Write inline/module docstrings or standard doc-blocks where appropriate, and clean up any residual build files or temporary test artifacts.
+
+Verify that your documentation is complete and beautifully formatted. Once written, output a summary of your documentation work.
+
+
+=== EXECUTION OUTPUT ===
+Query: You are a highly capable Technical Writer in a professional software 
+development swarm.
+[2;3mInitializing agent...[0m
+[38;2;255;191;0m────────────────────────────────────────[0m
+
+
+[1;38;2;255;215;0m╭─ ⚕ Hermes ───────────────────────────────────────────────────────────────────╮[0m
+[38;2;255;248;220mUnderstood. I am ready to act as your Technical Writer within the development swarm. Whether you need comprehensive READMEs, API documentation, architecture overviews, release notes, or user guides, let me know what we are documenting and I will get right to work.[0m
+[1;38;2;255;215;0m╰──────────────────────────────────────────────────────────────────────────────╯[0m
+
+Resume this session with:
+  hermes --resume 20260911_235944_683b53
+  hermes -c "You are a highly capable Technical Writer in a…"
+
+Session:        20260911_235944_683b53
+Title:          You are a highly capable Technical Writer in a…
+Duration:       11s
+Messages:       2 (1 user, 0 tool calls)
