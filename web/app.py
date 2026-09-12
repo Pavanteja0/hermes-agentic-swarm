@@ -49,8 +49,9 @@ def simulate():
             "Output 6 to 8 concise, realistic log lines representing their execution steps."
         )
         
+        # Use llama3-70b-8192 which is standard and universally supported on Groq API
         completion = groq_client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="llama3-70b-8192",
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": f"Project Prompt: {prompt}"}
@@ -65,6 +66,7 @@ def simulate():
         return jsonify({
             "status": "success",
             "mode": "groq",
+            "model": "llama3-70b-8192",
             "logs": logs
         })
     except Exception as e:
