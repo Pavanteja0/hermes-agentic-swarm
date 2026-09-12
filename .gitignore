@@ -1,0 +1,6 @@
+.env
+__pycache__/
+.hermes-swarm/
+*.pyc
+.DS_Store
+venv/

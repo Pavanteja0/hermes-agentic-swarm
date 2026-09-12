@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hermes-Swarm — Autonomous Multi-Agent Software Engineering Swarm</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        canvas: '#010102',
+                        'surface-1': '#121316',
+                        'surface-2': '#191b1f',
+                        'surface-3': '#22242a',
+                        'surface-4': '#2b2d35',
+                        hairline: '#23252a',
+                        'hairline-strong': '#32353e',
+                        primary: '#5e6ad2',
+                        'primary-hover': '#828fff',
+                        'primary-focus': '#5e69d1',
+                        ink: '#f7f8f8',
+                        'ink-muted': '#d0d6e0',
+                        'ink-subtle': '#8a8f98',
+                        'success-green': '#27a644'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'system-ui', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'ui-monospace', 'SF Mono', 'Menlo', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #010102; color: #f7f8f8; font-family: 'Inter', sans-serif; }
+        .hero-title { letter-spacing: -2.5px; }
+    </style>
+</head>
+<body class="bg-canvas text-ink antialiased selection:bg-primary selection:text-white">
+
+    <!-- Top Navigation -->
+    <header class="sticky top-0 z-50 bg-canvas/80 backdrop-blur-md border-b border-hairline h-16 flex items-center px-6 md:px-12 justify-between">
+        <div class="flex items-center space-x-3">
+            <div class="w-7 h-7 rounded-md bg-primary flex items-center justify-center font-bold text-white text-sm shadow-sm">⚡</div>
+            <span class="font-semibold text-lg tracking-tight text-ink">Hermes-Swarm</span>
+            <span class="hidden sm:inline-block px-2 py-0.5 text-xs rounded-full bg-surface-2 text-ink-muted border border-hairline">v1.0</span>
+        </div>
+        <nav class="hidden md:flex items-center space-x-8 text-sm text-ink-muted">
+            <a href="#architecture" class="hover:text-ink transition-colors">Architecture</a>
+            <a href="#simulator" class="hover:text-ink transition-colors">Live Groq Simulator</a>
+            <a href="#features" class="hover:text-ink transition-colors">Features</a>
+            <a href="#quickstart" class="hover:text-ink transition-colors">Quick Start</a>
+        </nav>
+        <div class="flex items-center space-x-3">
+            <a href="https://github.com/Pavanteja0/hermes-swarm" target="_blank" class="px-3.5 py-1.5 rounded-md bg-surface-1 border border-hairline hover:bg-surface-2 text-ink text-sm font-medium transition-colors flex items-center space-x-2">
+                <span>GitHub</span>
+            </a>
+            <a href="#simulator" class="px-3.5 py-1.5 rounded-md bg-primary hover:bg-primary-hover text-white text-sm font-medium transition-colors shadow-sm">
+                Try Swarm
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-24 pb-20 px-6 md:px-12 max-w-7xl mx-auto text-center">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-surface-1 border border-hairline text-xs font-medium text-ink-muted mb-8">
+            <span class="w-2 h-2 rounded-full bg-success-green animate-pulse"></span>
+            <span>Powered by Hermes Agent & Groq LPU Inference</span>
+        </div>
+        
+        <h1 class="hero-title text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-ink max-w-5xl mx-auto leading-tight mb-6">
+            Autonomous Multi-Agent <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-hover">Software Engineering Swarm</span>
+        </h1>
+        
+        <p class="text-lg sm:text-xl text-ink-muted max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+            Design, write, test, debug, and document entire production applications from a single prompt using specialized AI agent nodes and file-driven state persistence.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-16">
+            <a href="#simulator" class="w-full sm:w-auto px-6 py-3 rounded-md bg-primary hover:bg-primary-hover text-white font-medium text-sm transition-colors shadow-lg shadow-primary/25">
+                Launch Live Simulator
+            </a>
+            <a href="#quickstart" class="w-full sm:w-auto px-6 py-3 rounded-md bg-surface-1 hover:bg-surface-2 border border-hairline text-ink font-medium text-sm transition-colors">
+                View Documentation
+            </a>
+        </div>
+
+        <!-- Product Screenshot / UI Frame -->
+        <div class="rounded-xl bg-surface-1 border border-hairline p-3 md:p-6 shadow-2xl text-left max-w-5xl mx-auto">
+            <div class="flex items-center justify-between pb-4 mb-4 border-b border-hairline">
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                    <div class="w-3 h-3 rounded-full bg-success-green/80"></div>
+                    <span class="text-xs font-mono text-ink-subtle ml-2">hermes-swarm-orchestrator.py</span>
+                </div>
+                <div class="text-xs font-mono text-success-green bg-surface-2 px-2.5 py-1 rounded border border-hairline">
+                    STATUS: READY
+                </div>
+            </div>
+            <div class="bg-canvas rounded-lg p-4 md:p-6 font-mono text-xs sm:text-sm text-ink-muted overflow-x-auto border border-hairline">
+                <p class="text-primary font-semibold">$ python swarm.py "Build a FastAPI microservice with JWT auth" --dir ./api_app</p>
+                <p class="text-ink mt-2">✨ Workspace initialized at: <span class="text-ink-muted">./api_app</span></p>
+                <p class="text-ink">🐝 [ARCHITECT] Formulating specification & ticket backlog under <span class="text-primary">.hermes-swarm/tickets/</span></p>
+                <p class="text-ink">💻 [DEVELOPER] Picking up Ticket #1: FastAPI boilerplate & models...</p>
+                <p class="text-ink">🧪 [QA_ENGINEER] Running pytest suite... All 12 tests passed 100% green!</p>
+                <p class="text-success-green mt-2 font-semibold">🎉 Swarm execution successfully completed. Artifacts verified.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section id="architecture" class="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-hairline">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-xs font-semibold uppercase tracking-widest text-primary mb-3">System Architecture</h2>
+            <h3 class="text-3xl sm:text-4xl font-semibold tracking-tight text-ink mb-4">Four specialized agents working in harmony</h3>
+            <p class="text-ink-muted text-base">Orchestrated with file-driven state persistence, ensuring zero race conditions and robust crash recovery.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Architect -->
+            <div class="rounded-lg bg-surface-1 border border-hairline p-6 hover:border-hairline-strong transition-all">
+                <div class="w-10 h-10 rounded-md bg-surface-2 border border-hairline flex items-center justify-center text-primary font-bold text-lg mb-4">🏛️</div>
+                <h4 class="font-semibold text-ink text-lg mb-2">Lead Architect</h4>
+                <p class="text-ink-subtle text-sm leading-relaxed">Formulates complete system specifications, maps folder structures, and compiles markdown implementation tickets.</p>
+            </div>
+            <!-- Developer -->
+            <div class="rounded-lg bg-surface-1 border border-hairline p-6 hover:border-hairline-strong transition-all">
+                <div class="w-10 h-10 rounded-md bg-surface-2 border border-hairline flex items-center justify-center text-primary font-bold text-lg mb-4">⚡</div>
+                <h4 class="font-semibold text-ink text-lg mb-2">Senior Developer</h4>
+                <p class="text-ink-subtle text-sm leading-relaxed">Pulls pending tickets, writes clean production code, and updates ticket status upon completion.</p>
+            </div>
+            <!-- QA Engineer -->
+            <div class="rounded-lg bg-surface-1 border border-hairline p-6 hover:border-hairline-strong transition-all">
+                <div class="w-10 h-10 rounded-md bg-surface-2 border border-hairline flex items-center justify-center text-primary font-bold text-lg mb-4">🧪</div>
+                <h4 class="font-semibold text-ink text-lg mb-2">QA Engineer</h4>
+                <p class="text-ink-subtle text-sm leading-relaxed">Discovers test suites, runs test runners, captures error tracebacks, and executes recursive bug patching loops.</p>
+            </div>
+            <!-- Technical Writer -->
+            <div class="rounded-lg bg-surface-1 border border-hairline p-6 hover:border-hairline-strong transition-all">
+                <div class="w-10 h-10 rounded-md bg-surface-2 border border-hairline flex items-center justify-center text-primary font-bold text-lg mb-4">📖</div>
+                <h4 class="font-semibold text-ink text-lg mb-2">Technical Writer</h4>
+                <p class="text-ink-subtle text-sm leading-relaxed">Scans final codebases and compiles comprehensive, elegant README documentation and API guides.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Groq Simulator Section -->
+    <section id="simulator" class="py-24 px-6 md:px-12 max-w-5xl mx-auto border-t border-hairline">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <h2 class="text-xs font-semibold uppercase tracking-widest text-primary mb-3">Live Groq LPU Sandbox</h2>
+            <h3 class="text-3xl font-semibold tracking-tight text-ink mb-4">Test the Swarm in Real-Time</h3>
+            <p class="text-ink-muted text-sm">Powered by Groq API (`llama-3.3-70b-versatile`) for lightning-fast multi-agent simulation.</p>
+        </div>
+
+        <div class="rounded-lg bg-surface-1 border border-hairline p-6 shadow-xl">
+            <div class="mb-6">
+                <label class="block text-xs font-medium uppercase tracking-wider text-ink-subtle mb-2">Enter Project Prompt</label>
+                <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
+                    <input type="text" id="promptInput" value="Build a secure REST API with FastAPI, SQLite, and pytest unit tests" class="flex-1 bg-canvas border border-hairline rounded-md px-4 py-2.5 text-ink text-sm focus:outline-none focus:border-primary transition-colors">
+                    <button onclick="runSimulation()" id="simBtn" class="px-6 py-2.5 bg-primary hover:bg-primary-hover text-white rounded-md text-sm font-medium transition-colors shadow-sm flex items-center justify-center space-x-2">
+                        <span>Run Swarm</span>
+                    </button>
+                </div>
+            </div>
+
+            <div>
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-mono text-ink-subtle">Execution Console</span>
+                    <span id="simStatus" class="text-xs font-mono text-ink-subtle">Idle</span>
+                </div>
+                <div id="consoleOutput" class="rounded-md bg-canvas border border-hairline p-4 font-mono text-xs text-ink-muted h-64 overflow-y-auto space-y-2">
+                    <p class="text-ink-subtle">// Enter a prompt above and click Run Swarm to initiate agent orchestration...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start Section -->
+    <section id="quickstart" class="py-24 px-6 md:px-12 max-w-5xl mx-auto border-t border-hairline">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <h2 class="text-xs font-semibold uppercase tracking-widest text-primary mb-3">Getting Started</h2>
+            <h3 class="text-3xl font-semibold tracking-tight text-ink mb-4">Quick Start Guide</h3>
+            <p class="text-ink-muted text-sm">Clone the repository and run your first autonomous agent swarm in minutes.</p>
+        </div>
+
+        <div class="space-y-6">
+            <div class="rounded-lg bg-surface-1 border border-hairline p-6">
+                <h4 class="font-semibold text-ink text-sm mb-2 text-primary">Step 1: Install Dependencies</h4>
+                <div class="bg-canvas rounded p-3 font-mono text-xs text-ink-muted border border-hairline mt-2">
+                    pip install rich python-pptx flask groq requests
+                </div>
+            </div>
+            <div class="rounded-lg bg-surface-1 border border-hairline p-6">
+                <h4 class="font-semibold text-ink text-sm mb-2 text-primary">Step 2: Set Groq API Key (Optional for Web Simulator)</h4>
+                <div class="bg-canvas rounded p-3 font-mono text-xs text-ink-muted border border-hairline mt-2">
+                    export GROQ_API_KEY="your-groq-api-key"
+                </div>
+            </div>
+            <div class="rounded-lg bg-surface-1 border border-hairline p-6">
+                <h4 class="font-semibold text-ink text-sm mb-2 text-primary">Step 3: Run the Web App</h4>
+                <div class="bg-canvas rounded p-3 font-mono text-xs text-ink-muted border border-hairline mt-2">
+                    python web/app.py
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-hairline py-12 px-6 md:px-12 text-center text-xs text-ink-subtle">
+        <p>© 2026 Hermes-Swarm Project. Built on the Hermes Agent Framework (Nous Research).</p>
+    </footer>
+
+    <!-- JavaScript for Live Simulator -->
+    <script>
+        async function runSimulation() {
+            const prompt = document.getElementById('promptInput').value;
+            const outputBox = document.getElementById('consoleOutput');
+            const statusBox = document.getElementById('simStatus');
+            const btn = document.getElementById('simBtn');
+
+            if (!prompt) return;
+
+            btn.disabled = true;
+            btn.textContent = 'Running Swarm...';
+            statusBox.textContent = 'RUNNING';
+            statusBox.className = 'text-xs font-mono text-primary font-semibold';
+            outputBox.innerHTML = '<p class="text-primary">// Initializing Groq API LPU inference and agent node swarm...</p>';
+
+            try {
+                const response = await fetch('/api/simulate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ prompt: prompt })
+                });
+
+                const data = await response.json();
+                outputBox.innerHTML = '';
+
+                if (data.logs && data.logs.length > 0) {
+                    data.logs.forEach((log, index) => {
+                        setTimeout(() => {
+                            const p = document.createElement('p');
+                            p.className = 'text-ink';
+                            p.textContent = log;
+                            outputBox.appendChild(p);
+                            outputBox.scrollTop = outputBox.scrollHeight;
+                        }, index * 300);
+                    });
+                }
+
+                setTimeout(() => {
+                    statusBox.textContent = 'SUCCESS';
+                    statusBox.className = 'text-xs font-mono text-success-green font-semibold';
+                    btn.disabled = false;
+                    btn.textContent = 'Run Swarm';
+                }, (data.logs.length || 5) * 300);
+
+            } catch (err) {
+                outputBox.innerHTML += `<p class="text-red-400">[ERROR] Failed to reach simulation backend: ${err.message}</p>`;
+                statusBox.textContent = 'FAILED';
+                statusBox.className = 'text-xs font-mono text-red-400 font-semibold';
+                btn.disabled = false;
+                btn.textContent = 'Run Swarm';
+            }
+        }
+    </script>
+</body>
+</html>
