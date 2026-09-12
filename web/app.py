@@ -49,9 +49,9 @@ def simulate():
             "Output 6 to 8 concise, realistic log lines representing their execution steps."
         )
         
-        # Use llama-3.1-70b-versatile which is active on Groq API
+        # Use openai/gpt-oss-120b supported on this Groq API key
         completion = groq_client.chat.completions.create(
-            model="llama-3.1-70b-versatile",
+            model="openai/gpt-oss-120b",
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": f"Project Prompt: {prompt}"}
@@ -65,7 +65,7 @@ def simulate():
         
         return jsonify({
             "status": "success",
-            "model": "llama-3.1-70b-versatile",
+            "model": "openai/gpt-oss-120b",
             "logs": logs
         })
     except Exception as e:
